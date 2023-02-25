@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+<div class="col-sm-12">
+    <h3 class="text-center alert alert-info">All Data</h3>
+    {% if data %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">City</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for data in data %}
+         <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.mobile}}</td>
+            <td>{{data.city}}</td>
+          </tr>
+         {% endfor %}   
+        </tbody>
+      </table>
+    {% else %}
+     <h3 class="text-center alert alert-warning">No Record</h3>
+    {% endif %}
+    <a href="{% url 'formdata' %}" class="btn btn-warning" >Form</a>
+</div>
+
+{% endblock content %}
